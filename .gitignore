@@ -1,0 +1,23 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.fls
+ 
+# SyncTeX
+*.synctex.gz
+
+# LaTeX Beamer
+*.snm
+*.vrb
+*.nav
+*.out
+
+# BibTeX
+*.bbl
+*.blg
+
+# Backup files
+*~
+*.backup
+*.tex.backup

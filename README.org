@@ -1,0 +1,6 @@
+* Academic writing in engineering
+
+This repository holds the slides of a LaTeX course I'm teaching at
+uni.
+
+The beamer template used is [[https://github.com/RatulSaha/presento][Presento]] by Ratul Saha.
