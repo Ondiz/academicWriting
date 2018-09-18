@@ -6,6 +6,7 @@
   \itemR Easy academic format: glossaries, bibliography, table of contents, cross references\ldots
   \itemR Equations
  \end{fullpageitemize}
+ \note{I'm talking only about free software because that's what I use}
 \end{frame}
 
 \begin{frame}{What do I need?}
@@ -21,9 +22,71 @@
   \item \textbf{Online editor}: \href{https://www.overleaf.com/}{Overleaf}
  \end{itemize}
  
- \note{Any editor can do, I use Emacs (in general I write in Org mode and export to LaTeX)
+ \note{Any editor can do, I use Emacs (in general I write in Org mode and export to LaTeX). The AucTeX mode is specially useful.
+ 
+ LyX
  
  If you're on Windows I'd recommend MikTeX as it takes care of needed packages on its own.}
+\end{frame}
+
+\begin{frame}{The markup language}
+- Packages, preamble, environments and commands
+- Equations, tables, titles, figures 
+\end{frame}
+
+\begin{frame}{Structure of a document}
+
+\end{frame}
+
+\begin{frame}{Useful packages}
+
+\end{frame}
+
+\begin{frame}{Bibliography}
+ \begin{fullpageitemize}
+  \itemR Bibliography stored in a {\inconsolatafont .bib} file 
+  \itemR Managed by external program (\href{http://www.bibtex.org/}{BibTeX}, \ldots) 
+  \itemR Additional compilation step: {\inconsolatafont latex - bibtex - latex - latex}
+  \itemR Bibliography managers: JabRef, Zotero, \href{https://bibdesk.sourceforge.io/}{BibDesk} \ldots
+ \end{fullpageitemize}
+ 
+ \note{zotero-better-bibtex,  for Mac. 
+ BibTeX comes with the standard LaTeX distribution, there are more options like Natbib, BibLaTeX}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliography}
+
+MWE with bibliography defined in {\inconsolatafont references.bib}:
+
+\begin{lstlisting}[language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
+\documentclass[11pt]{article}
+  \begin{document}
+  
+  As said in \cite{Knuth1997}...
+    
+  % Definition of bibliography
+  \bibliography{references} % Path
+  \bibliographystyle{plain} % Style
+\end{document}
+\end{lstlisting}
+
+\note{Minimum working example}
+
+\end{frame}
+
+\begin{frame}[fragile]{Bibliography}
+
+Where {\inconsolatafont references.bib} looks like:
+
+\begin{lstlisting}[breaklines=false]
+@book{Knuth1997,
+  title={The art of computer programming},
+  author={Knuth, Donald Ervin},
+  volume={3},
+  year={1997},
+  publisher={Pearson Education}}
+\end{lstlisting}
+\note{A little trick is changing Scholar settings so that one can directly import to BibTex}
 \end{frame}
 
 \begin{frame}{Tools \& tricks}

@@ -10,6 +10,7 @@
 \usepackage{setspace}
 \usepackage{tikz}
 \usepackage{enumitem}
+\usepackage{listings}
 
 % colors
 \definecolor{colororange}{HTML}{E65100} % orange
@@ -43,6 +44,24 @@
 \setmainfont[Ligatures=TeX,Path=fonts/,BoldFont=NotoSans-Bold,ItalicFont=NotoSans-Italic,BoldItalicFont=NotoSans-BoldItalic,SmallCapsFont=AlegreyaSansSC-Regular]{NotoSans-Regular}
 \setsansfont[Ligatures=TeX,Path=fonts/,BoldFont=NotoSans-Bold,ItalicFont=NotoSans-Italic,BoldItalicFont=NotoSans-BoldItalic,SmallCapsFont=AlegreyaSansSC-Regular]{NotoSans-Regular}
 \setmonofont[Ligatures=TeX,Path=fonts/,SmallCapsFont=AlegreyaSansSC-Regular]{Inconsolata}
+
+
+% Listing style
+\lstset{
+        tabsize=2, 
+        backgroundcolor=\color{colorlgray},
+        captionpos=b, 
+        basicstyle=\small\ttfamily,
+        columns=fixed, 
+        extendedchars=true, 
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        showtabs=false, 
+        showspaces=false,
+        keywordstyle=\bfseries\color{colororange},
+        commentstyle=\color{colorgreen}, 
+        stringstyle=\color{colorblue},
+}
 
 % frame counter
 \newcounter{totalfr}
