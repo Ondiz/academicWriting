@@ -21,3 +21,6 @@
 *~
 *.backup
 *.tex.backup
+
+# Output
+*.pdf

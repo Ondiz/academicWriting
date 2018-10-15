@@ -4,3 +4,11 @@ This repository holds the slides of a LaTeX course I'm teaching at
 uni.
 
 The beamer template used is [[https://github.com/RatulSaha/presento][Presento]] by Ratul Saha.
+
+** TODO
+
+*** Accessibility
+
+- [X] Check contrast of colours: passes for all in large text
+- [ ] Mark links not only using colour
+- [ ] Don't use italics
