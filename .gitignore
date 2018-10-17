@@ -3,6 +3,7 @@
 *.log
 *.toc
 *.fls
+*.tmp
  
 # SyncTeX
 *.synctex.gz

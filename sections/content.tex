@@ -38,8 +38,8 @@ So let's see how can we start using the stuff. As a note I'll talk mostly about 
 
 \begin{frame}{The markup language}
  \begin{fullpageitemize}
-  \itemR We use \textbf{labels} to \textbf{mark} the parts of the text we want to have a \textbf{specific style}
-  \itemR After compilation, we obtain a \textbf{styled document}
+  \itemR We use labels to mark the parts of the text we want to have a specific style
+  \itemR After compilation, we obtain a styled document
   \itemR Documents must follow a concrete structure
   \itemR Specific syntax for equations, figures, tables, titles, sections\ldots
  \end{fullpageitemize}
@@ -49,39 +49,135 @@ So let's see how can we start using the stuff. As a note I'll talk mostly about 
 \end{frame}
 
 \begin{frame}[fragile]{Structure of a document}
-\null{\inconsolatafont .tex} files with the following structure:
- \begin{lstlisting}[language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
+We write \texttt{.tex} files with this structure:
+
+ \begin{lstlisting}
    % Document definition   
    \documentclass[OPTIONS]{TYPE}
-   %%%%%%% Preamble %%%%%%
-   \usepackage{PACKAGE} 
-   % Data
-   \title{TITLE}
-   \author{AUTHOR}   
-   %%%%%%%%%%%%%%%%%%%%%%%%
+   % Preamble 
+   % Data, packages and commands go here
    \begin{document}       
    % Body of document          
    \end{document}
  \end{lstlisting}
  
- \note{We write {\inconsolatafont .tex} files with a specific structure divided in two parts: the preamble, that goes from the definition of the document to the body and where we add packages, commands and data and after, the body of the document, where we write the contents.
+ \note{We write \texttt{.tex} files with a specific structure divided in two parts: the preamble, that goes from the definition of the document to the body and where we add packages, commands and data and after, the body of the document, where we write the contents.
  
- The cited packages are pieces of LaTeX that people wrote and give us added functionality as language support. They're centralised in a repository called \href{https://www.ctan.org/}{CTAN} and we have to install them to use them.}
+ The cited packages are pieces of LaTeX that people wrote and give us added functionality as language support. They're centralised in a repository called \href{https://www.ctan.org/}{CTAN} and we have to install them to use them.
+ 
+ In general, we'll have two types of documents: short and long, as we are academics, we can think of a paper and a thesis}
+
+\end{frame}
+ 
+\begin{frame}[fragile]{Short documents}
+ \begin{lstlisting} 
+ \documentclass[a4paper]{article}
+  % Preamble 
+  \usepackage{amsmath}
+  \title{The title}
+ \begin{document}       
+  % Body of document  
+  \maketitle
+  \section*{Unnumbered section}
+  \section{First numbered section}
+  \subsection{First numbered subsection}
+  Text!      
+ \end{document}
+ \end{lstlisting}
+ 
+ \note{This is the typical structure of a short document, as a paper, that would probably use the article class or any of it's derivatives.}
+
+\end{frame}
+
+\begin{frame}{Short documents}
+ \begin{fullpageitemize}
+  \itemR We call packages in the preamble with \texttt{usepackage}
+  \itemR The \texttt{article} class has 4 divisions: \texttt{section}, \texttt{subsection}, \texttt{subsubsection} and \texttt{paragraph} (unnumbered)
+  \itemR The \texttt{*} suppresses numbering 
+ \end{fullpageitemize} 
+ 
+ \note{}
+
+\end{frame}
+
+\begin{frame}[fragile]{Long documents}
+ \begin{lstlisting}
+ \documentclass[a4paper]{book}
+  \input{preamble} % read preamble.tex
+ \begin{document}       
+  \maketitle       % titlepage
+  \frontmatter 
+  \tableofcontents
+  % Content starts here
+  \mainmatter
+  \include{Contents/chap1} % chap1.tex
+  % Appendices start here
+  \appendix 
+  \include{ap1}
+  \backmatter
+ \end{document} 
+ \end{lstlisting}
+ 
+ \note{This is a typical long document, for example a thesis. We'll have a main file and call the chapters and configuration from outside.}
+
+\end{frame}
+
+\begin{frame}{Long documents}
+ \begin{fullpageitemize}
+  \itemR The \texttt{book} class has also \texttt{part} and \texttt{chapter} divisions  
+  \itemR We can organise content in different files and \texttt{include}/\texttt{input} them
+  \itemR We can mark the document (\texttt{\textbackslash frontmatter}, \texttt{\textbackslash mainmatter}, \texttt{\textbackslash backmatter}) to establish different styles (page numbers, headings\ldots)
+  \itemR The chapters after \texttt{\textbackslash appendix} are identified using letters
+ \end{fullpageitemize}
+ 
+ \note{When our document is long, instead of having a single gigantic tex file, we can divide the contents in several files and input or include them. The difference between including and inputing is that we cannot nest includes and that we can select what to compile when including (includeonly)
+ 
+ We can mark the tex file with some identifiers so that the style varies, for example, by default, the page numbers between frontmatter and mainmatter are roman numerals. 
+ 
+ Then, the chapters after appendix are identified using letters.}
 
 \end{frame}
 
 \begin{frame}[fragile]{Defining elements}
-\vspace{2ex}
-\textbf{Equations}
-\begin{LTXexample}[pos=r,wide,width=.5,rframe={}, language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
-\begin{equation}
-  A = \pi\times R^2
-\end{equation}
+\textbf{Titlepage}
+\begin{LTXexample}[pos=r,wide,width=.48,rframe={}]
+\documentclass{article}
+ \title{The title}
+ \author{A. Uthor}
+ \date{\today}
+\begin{document}
+ \maketitle
+\end{document}
 \end{LTXexample}
-\vspace{1ex}
+
+\note{}
+
+\end{frame}
+
+\begin{frame}[fragile]{Defining elements}
+\textbf{Equations}
+\begin{LTXexample}[pos=r,wide,width=.3,rframe={}]
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+
+ \begin{equation}
+   A = \pi\times R^2
+ \end{equation}
+
+ % Inline equation
+ where $R = 1$
+\end{document}
+\end{LTXexample}
+
+\note{Here you can see the syntax for introducing equations and figures. The equation has a number that can be avoided using the equation* environment. Also, we can have both inline equations that are written between dollar signs. There is a special syntax for typesetting equations that's a bit complex to get, an online editor or a good IDE can help a lot at the beginning.
+
+I'm using the packages amsmath and amssymb to improve the appearance of equations and to have more commands available.}
+\end{frame}
+
+\begin{frame}[fragile]{Defining elements}
 \textbf{Figures}
-\vspace{-1ex}
-\begin{LTXexample}[pos=r,wide,width=.25,rframe={}, language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
+\begin{LTXexample}[pos=r,wide,width=.3,rframe={}]
 \begin{figure}[h] % h: here
   \centering
   \includegraphics
@@ -90,14 +186,12 @@ So let's see how can we start using the stuff. As a note I'll talk mostly about 
 \end{figure}
 \end{LTXexample}
 
-\note{\footnotesize{Here you can see the syntax for introducing equations and figures. The equation has a number that can be avoided using the equation* environment. Also, we can have both inline equations that are written between dollar signs. There is a special syntax for typesetting equations that's a bit complex to get, an online editor or a good IDE can help a lot at the beginning.
-
-Regarding figures, there are both inline and floating figures, the one shown is a floating one. We'll talk about floating elements after, but I'd like to point out a feature of all commands and environments: the options between brackets are optional and the ones between braces compulsory. So here, the path is of course compulsory. The extension can be omitted.}}
+\note{Regarding figures, there are both inline and floating figures, the one shown is a floating one. We'll talk about floating elements after, but I'd like to point out a feature of all commands and environments: the options between brackets are optional and the ones between braces compulsory. So here, the path is of course compulsory. The extension can be omitted.}
 \end{frame}
 
 \begin{frame}[fragile]{Defining elements}
 \textbf{Tables}
-\begin{LTXexample}[pos=r,wide,width=.3,rframe={}, language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
+\begin{LTXexample}[pos=r,wide,width=.3,rframe={}]
 \begin{table}
  \begin{tabular}{cc} % c: center
   \hline
@@ -112,50 +206,85 @@ Regarding figures, there are both inline and floating figures, the one shown is 
 \note{Here you can see an example of a table. Tables in LaTeX are a pain to write, so at the end I'm linking some tricks to alleviate the work. They can be as well floating elements or not and consist on some data separated by \& and backslashes}
 \end{frame}
 
-\begin{frame}[fragile]{Defining elements}
-\textbf{Title, chapters, sections}
-\begin{LTXexample}[pos=r,wide,width=.3,rframe={}, language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
+\begin{frame}[fragile]{Crossreferences}
+If we add a label to an element we can reference it in the text:
+\begin{LTXexample}[pos=r,wide,width=.26,rframe={}, preset=\small]
+\begin{equation}
+ \label{eq:im}
+ \mathrm{i} = \sqrt{-1}
+\end{equation}
 
+As seen in Equation~\ref{eq:im}
 \end{LTXexample}
-\note{}
+
+ \begin{fullpageitemize}
+  \itemR Compile two times
+  \itemR Use identifiers for labels! 
+ \end{fullpageitemize}
+
+\note{If we add a label to any element, we can after reference it in the text. We need to compile an additional time so as to get all the references. The editors let you choose (example in Texmaker). A good practice is to identify the references to find them with more ease.}
 \end{frame}
 
-\begin{frame}[fragile]{Defining elements}
-\textbf{Lists}
-\begin{LTXexample}[pos=r,wide,width=.3,rframe={}, language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
+\begin{frame}[fragile]{Captions}
+Floating elements (figures, tables, listings) can have captions:
 
+\begin{LTXexample}[pos=r,wide,width=.4,rframe={}]
+\begin{table}
+ \centering
+ \begin{tabular}{cc}
+ \hline
+  x       & 1  \\
+  y       & 2  \\ 
+ \hline
+ \end{tabular}
+ \caption{Data}
+\end{table}
 \end{LTXexample}
-\note{}
-\end{frame}
 
-\begin{frame}{Crossreferences}
-
-\note{If we add a label to any element, we can after reference it. We need to compile an additional time so as to get all the references. The editors let you choose (example in Texmaker)
-
-label ref, paquete cleveref (cref, Cref), nameref}
-\end{frame}
-
-\begin{frame}{Captions}
 \note{Floating elements as figures, tables and code listings can have captions. Caption is positioned where we asked it to be.}
+\end{frame}
+
+\begin{frame}[fragile]{Listing content}
+Listing content is trivial:
+\begin{lstlisting} 
+\tableofcontents
+\listoffigures
+\listoftables
+\end{lstlisting}
+
+If we want to add something to toc:
+\begin{lstlisting} 
+\addcontentsline{toc}{chapter}{NAME}
+\end{lstlisting}
+
+We can define short names for sections and captions for the lof/lot:
+\begin{lstlisting} 
+\caption[SHORT]{LONG}
+\end{lstlisting}
+
+\note{Making a table of contents, list of figures or tables is trivial, we just add the command where we want it placed and done! We have to take into account two things: unnumbered chapters are not added to the table of contents, sections and captions have the option of a short name for the lists.}
 \end{frame}
 
 \begin{frame}{Bibliography}
  \begin{fullpageitemize}
-  \itemR Bibliography stored in a {\inconsolatafont .bib} file 
+  \itemR Bibliography stored in a \texttt{.bib} file 
   \itemR Managed by external program (\href{http://www.bibtex.org/}{BibTeX}, \ldots) 
-  \itemR Additional compilation step: {\inconsolatafont latex - bibtex - latex - latex}
-  \itemR Bibliography managers: JabRef, Zotero, \href{https://bibdesk.sourceforge.io/}{BibDesk} \ldots
+  \itemR Additional compilation step: \texttt{latex - bibtex - latex - latex}
+  \itemR Bibliography managers: JabRef, Zotero, \href{https://bibdesk.sourceforge.io/}{BibDesk}\ldots
  \end{fullpageitemize}
  
- \note{zotero-better-bibtex,  for Mac. 
- BibTeX comes with the standard LaTeX distribution, there are more options like Natbib, BibLaTeX}
+ \note{The most important part for academics like us is the ability to cite easily. In LaTeX citation is managed by an external program called BibTeX (there are more "advanced" options like Natbib, BibLaTeX) that comes with the distribution and requires and additional compilation step. 
+ 
+ We need a \texttt{.bib} file that can be exported from our bibliography manager. For example, I use JabRef that works directly with \texttt{.bib} files.
+
+zotero-better-bibtex,  for Mac.}
 \end{frame}
 
 \begin{frame}[fragile]{Bibliography}
 
-MWE with bibliography defined in {\inconsolatafont references.bib}:
+MWE with bibliography defined in \texttt{references.bib}:
 
-\begin{lstlisting}[language={[LaTeX]TeX},texcsstyle=*\color{colororange}]
+\begin{lstlisting}
 \documentclass[11pt]{article}
   \begin{document}
   
@@ -173,7 +302,7 @@ MWE with bibliography defined in {\inconsolatafont references.bib}:
 
 \begin{frame}[fragile]{Bibliography}
 
-Where {\inconsolatafont references.bib} looks like:
+Where \texttt{references.bib} looks like:
 
 \begin{lstlisting}[breaklines=false]
 @book{Knuth1997,
@@ -187,7 +316,7 @@ Where {\inconsolatafont references.bib} looks like:
 \end{frame}
 
 \begin{frame}{Useful packages}
-
+cleveref (cref, Cref)
 \end{frame}
 
 \begin{frame}{Tools \& tricks}
@@ -197,7 +326,7 @@ Where {\inconsolatafont references.bib} looks like:
   \itemR \href{https://www.ctan.org/tex-archive/support/excel2latex/}{\textbf{Excel2LaTeX}}: export tables with LaTeX format
   \itemR \href{http://detexify.kirelabs.org/classify.html}{\textbf{Detexify}}: find symbols
   \itemR \href{http://pandoc.org/}{\textbf{Pandoc}}: convert to \emph{any} format
-  \itemR LyX
+  \itemR \href{https://www.lyx.org/}{\textbf{LyX}}: middle point between Writer and LaTeX
 \end{fullpageitemize}
  
 \note{\href{http://mathb.in}{MathB.in} 
@@ -214,6 +343,24 @@ Where {\inconsolatafont references.bib} looks like:
  
  \note{Stackoverflow! DuckDuckGo (cheatsheet)}
 \end{frame}
+
+\begin{frame}{Case study: article}
+ 
+ \begin{fullpageitemize}
+	\itemR
+ \end{fullpageitemize} 
+ 
+ \note{}
+\end{frame}
+
+\begin{frame}{Case study: thesis}
+ 
+ \begin{fullpageitemize}
+	\itemR Organisation is a must!
+ \end{fullpageitemize} 
+ \note{}
+\end{frame}
+
 
 \framecard[colorgreen]{
 \vspace*{3ex}

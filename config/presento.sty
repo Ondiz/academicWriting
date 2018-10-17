@@ -48,7 +48,7 @@
 
 
 % Listing style
-\lstset{
+\lstset{language={[LaTeX]TeX},
         tabsize=2, 
         backgroundcolor=\color{colorlgray},
         captionpos=b, 
@@ -60,8 +60,11 @@
         showtabs=false, 
         showspaces=false,
         keywordstyle=\bfseries\color{colororange},
+        morekeywords={maketitle, includegraphics, tableofcontents, listoffigures, listoftables},
+        texcsstyle=*\color{colororange},
         commentstyle=\color{colorgreen}, 
         stringstyle=\color{colorblue},
+        moredelim=*[s][\bfseries\color{colorblue}]{\$}{\$},
 }
 
 % frame counter
