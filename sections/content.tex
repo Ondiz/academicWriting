@@ -1,7 +1,9 @@
 % !TeX root = ..\academicWriting.tex SHOULD WORK BUT DOESN'T :(
 
 % Notes for titlepage
-\note{Hi everybody welcome to this course! Here we'll put into practice the concepts learnt in the previous theory sessions using LaTeX to produce academic documents.}
+\note{Hi everybody welcome to this course! Here we'll put into practice the concepts learnt in the previous theory sessions using LaTeX to produce academic documents.
+
+We're going to see how to create a document and its different parts, we're not going to focus on format (fontsize, colour, style\ldots) because when writing a paper it'll be defined by the template of the journal. We'll see how it works in the examples.}
 
 \begin{frame}{What's LaTeX?}
  \begin{fullpageitemize}
@@ -269,15 +271,13 @@ We can define short names for sections and captions for the lof/lot:
  \begin{fullpageitemize}
   \itemR Bibliography stored in a \texttt{.bib} file 
   \itemR Managed by external program (\href{http://www.bibtex.org/}{BibTeX}, \ldots) 
-  \itemR Additional compilation step: \texttt{latex - bibtex - latex - latex}
+  \itemR Additional compilation step: \texttt{(pdf)latex - bibtex - (pdf)latex - (pdf)latex}
   \itemR Bibliography managers: JabRef, Zotero, \href{https://bibdesk.sourceforge.io/}{BibDesk}\ldots
  \end{fullpageitemize}
  
- \note{The most important part for academics like us is the ability to cite easily. In LaTeX citation is managed by an external program called BibTeX (there are more "advanced" options like Natbib, BibLaTeX) that comes with the distribution and requires and additional compilation step. 
+ \note{The most important part for academics like us is the ability to cite easily. In LaTeX citation is managed by an external program called BibTeX (there are more "advanced" options like Natbib, BibLaTeX) that comes with the distribution and requires and additional compilation step. So, if we have both crossreferences and bibliographic references, we'll have to compile 4 times in a sequence \texttt{(pdf)latex - bibtex - (pdf)latex - (pdf)latex}.
  
- We need a \texttt{.bib} file that can be exported from our bibliography manager. For example, I use JabRef that works directly with \texttt{.bib} files.
-
-zotero-better-bibtex,  for Mac.}
+ We need a \texttt{.bib} file that can be exported from our bibliography manager. For example, I use JabRef that works directly with \texttt{.bib} files.}
 \end{frame}
 
 \begin{frame}[fragile]{Bibliography}
@@ -288,15 +288,19 @@ MWE with bibliography defined in \texttt{references.bib}:
 \documentclass[11pt]{article}
   \begin{document}
   
-  As said in \cite{Knuth1997}...
+  As said in \cite{Knuth1997}
     
   % Definition of bibliography
-  \bibliography{references} % Path
   \bibliographystyle{plain} % Style
+  \bibliography{references} % Path
 \end{document}
 \end{lstlisting}
 
-\note{Minimum working example}
+ \begin{fullpageitemize}
+  \itemR Collection of styles in \href{http://debibify.dorian-depriester.fr/}{Debibify}
+ \end{fullpageitemize}
+
+\note{So, a minimum working example for a document with bibliographies would be something like this. The \texttt{\textbackslash cite} command introduces the cite into the text in the style defined. The \texttt{\textbackslash bibliography} writes down the references, alphabetically or in order of appearance depending on the style. We can have as many references as we want in the \texttt{.bib} file, LaTeX is smart and will only add the ones we have cited.}
 
 \end{frame}
 
@@ -312,11 +316,19 @@ Where \texttt{references.bib} looks like:
   year={1997},
   publisher={Pearson Education}}
 \end{lstlisting}
-\note{A little trick is changing Scholar settings so that one can directly import to BibTex}
+
+\vspace{3ex}
+ \begin{fullpageitemize}
+  \itemR \texttt{Knuth1997} is the \textbf{key} that we use for citing
+ \end{fullpageitemize}
+
+\note{The \texttt{.bib} file has entries that look like this one, where the first word is the key that we'll use for citing. A little trick is changing Scholar settings so that one can directly import to BibTeX (EXAMPLE)}
 \end{frame}
 
 \begin{frame}{Useful packages}
 cleveref (cref, Cref)
+unit
+glossaries
 \end{frame}
 
 \begin{frame}{Tools \& tricks}
@@ -339,6 +351,8 @@ cleveref (cref, Cref)
 	\itemR\href{https://ondiz.github.io/cursoLatex/}{\emph{Curso no convencional de LaTeX}}. Ondiz Zarraga
 
 	\itemR \href{http://www.khirevich.com/latex/}{\emph{Tips on Writing a Thesis in LaTeX}}. Siarhei Khirevich
+	
+	\itemR \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf Docs}
  \end{fullpageitemize}
  
  \note{Stackoverflow! DuckDuckGo (cheatsheet)}
