@@ -12,6 +12,8 @@
 \usepackage{enumitem}
 \usepackage{listings}
 \usepackage[final]{showexpl}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
 
 % colors
 \definecolor{colororange}{HTML}{E65100} % orange
@@ -20,6 +22,11 @@
 \definecolor{colorgreen}{HTML}{009688} % green
 \definecolor{colorlgray}{HTML}{FAFAFA} % background light gray
 \definecolor{colorblue}{HTML}{0277BB} % blue
+
+\hypersetup{colorlinks, urlcolor=colorblue}
+
+\let\oldhref=\href
+\renewcommand{\href}[2]{\oldhref{#1}{\uline{#2}}}
 
 % font sizes
 \newcommand{\fontsizeone}{2.292em}
