@@ -10,5 +10,5 @@ The beamer template used is [[https://github.com/RatulSaha/presento][Presento]] 
 *** Accessibility
 
 - [X] Check contrast of colours: passes for all in large text
-- [ ] Mark links not only using colour
-- [ ] Don't use italics
+- [X] Mark links not only using colour
+- [X] Don't use italics

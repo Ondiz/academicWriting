@@ -98,7 +98,9 @@ We write \texttt{.tex} files with this structure:
   \itemR The \texttt{*} suppresses numbering 
  \end{fullpageitemize} 
  
- \note{}
+ \note{The things to take into account when writting a paper are that we have 4 divisions, from \texttt{section} to \texttt{paragraph}, the first 3 are numbered by default. To suppress numbering we use the starred version of them, exactly the same that we'll see for equations.
+ 
+ There is also here an example of loading a package in the preamble so that you can see the syntax.}
 
 \end{frame}
 
@@ -152,7 +154,9 @@ We write \texttt{.tex} files with this structure:
 \end{document}
 \end{LTXexample}
 
-\note{}
+\note{Let's see then how to define elements. When I previously said that LaTeX uncouples format and content, I meant what you can see here: we gave it the data in the preamble and ask it to produce a titlepage somewhere in the document. It takes care of everything and will produce an appropriate title for our document class. 
+
+We can, of course, change the appearance of the title --- we can actually change everything.}
 
 \end{frame}
 
@@ -175,6 +179,7 @@ We write \texttt{.tex} files with this structure:
 \note{Here you can see the syntax for introducing equations and figures. The equation has a number that can be avoided using the equation* environment. Also, we can have both inline equations that are written between dollar signs. There is a special syntax for typesetting equations that's a bit complex to get, an online editor or a good IDE can help a lot at the beginning.
 
 I'm using the packages amsmath and amssymb to improve the appearance of equations and to have more commands available.}
+
 \end{frame}
 
 \begin{frame}[fragile]{Defining elements}
@@ -189,6 +194,7 @@ I'm using the packages amsmath and amssymb to improve the appearance of equation
 \end{LTXexample}
 
 \note{Regarding figures, there are both inline and floating figures, the one shown is a floating one. We'll talk about floating elements after, but I'd like to point out a feature of all commands and environments: the options between brackets are optional and the ones between braces compulsory. So here, the path is of course compulsory. The extension can be omitted.}
+
 \end{frame}
 
 \begin{frame}[fragile]{Defining elements}
@@ -225,6 +231,7 @@ As seen in Equation~\ref{eq:im}
  \end{fullpageitemize}
 
 \note{If we add a label to any element, we can after reference it in the text. We need to compile an additional time so as to get all the references. The editors let you choose (example in Texmaker). A good practice is to identify the references to find them with more ease.}
+
 \end{frame}
 
 \begin{frame}[fragile]{Captions}
@@ -244,6 +251,7 @@ Floating elements (figures, tables, listings) can have captions:
 \end{LTXexample}
 
 \note{Floating elements as figures, tables and code listings can have captions. Caption is positioned where we asked it to be.}
+
 \end{frame}
 
 \begin{frame}[fragile]{Listing content}
@@ -265,6 +273,7 @@ We can define short names for sections and captions for the lof/lot:
 \end{lstlisting}
 
 \note{Making a table of contents, list of figures or tables is trivial, we just add the command where we want it placed and done! We have to take into account two things: unnumbered chapters are not added to the table of contents, sections and captions have the option of a short name for the lists.}
+
 \end{frame}
 
 \begin{frame}{Bibliography}
@@ -278,10 +287,10 @@ We can define short names for sections and captions for the lof/lot:
  \note{The most important part for academics like us is the ability to cite easily. In LaTeX citation is managed by an external program called BibTeX (there are more "advanced" options like Natbib, BibLaTeX) that comes with the distribution and requires and additional compilation step. So, if we have both crossreferences and bibliographic references, we'll have to compile 4 times in a sequence \texttt{(pdf)latex - bibtex - (pdf)latex - (pdf)latex}.
  
  We need a \texttt{.bib} file that can be exported from our bibliography manager. For example, I use JabRef that works directly with \texttt{.bib} files.}
+ 
 \end{frame}
 
 \begin{frame}[fragile]{Bibliography}
-
 MWE with bibliography defined in \texttt{references.bib}:
 
 \begin{lstlisting}
@@ -305,7 +314,6 @@ MWE with bibliography defined in \texttt{references.bib}:
 \end{frame}
 
 \begin{frame}[fragile]{Bibliography}
-
 Where \texttt{references.bib} looks like:
 
 \begin{lstlisting}[breaklines=false]
@@ -323,28 +331,56 @@ Where \texttt{references.bib} looks like:
  \end{fullpageitemize}
 
 \note{The \texttt{.bib} file has entries that look like this one, where the first word is the key that we'll use for citing. A little trick is changing Scholar settings so that one can directly import to BibTeX (EXAMPLE)}
+
 \end{frame}
 
 \begin{frame}{Useful packages}
-cleveref (cref, Cref)
-unit
-glossaries
+ \begin{fullpageitemize}
+  \itemR \href{https://ctan.org/pkg/cleveref}{\texttt{cleveref}}: format of references are formatted automatically depending on type
+  \itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/units/}{\texttt{units}}: typesets units properly
+  \itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/microtype/}{\texttt{microtype}}: deals with microtypography
+  \itemR \href{https://www.ctan.org/pkg/listings}{\texttt{listings}}: provides syntax highlighting for code
+  \itemR \href{https://www.ctan.org/pkg/listofsymbols}{\texttt{listofsymbols}}: builds automatic list of symbols
+\end{fullpageitemize}
+
+\note{I'm sharing here some packages I find useful, in the practice time take a look and ask me!}
 
 \end{frame}
 
 \begin{frame}{Tools \& tricks}
  \begin{fullpageitemize}
-  \itemR \href{https://www.overleaf.com/}{\textbf{Overleaf}}: templates and online editor
-  \itemR \href{http://wiki.inkscape.org/wiki/index.php/LaTeX}{\textbf{Inkscape}}: image text as document text, LaTeX equation in images
-  \itemR \href{https://www.ctan.org/tex-archive/support/excel2latex/}{\textbf{Excel2LaTeX}}: export tables with LaTeX format
-  \itemR \href{http://detexify.kirelabs.org/classify.html}{\textbf{Detexify}}: find symbols
-  \itemR \href{http://pandoc.org/}{\textbf{Pandoc}}: convert to any format
-  \itemR \href{https://www.lyx.org/}{\textbf{LyX}}: middle point between Writer and LaTeX
+  \itemR \href{https://www.overleaf.com/}{Overleaf}: templates and online editor
+  \itemR \href{http://wiki.inkscape.org/wiki/index.php/LaTeX}{Inkscape}: image text as document text, LaTeX equation in images
+  \itemR \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2LaTeX}: export tables with LaTeX format
+  \itemR \href{http://detexify.kirelabs.org/classify.html}{Detexify}: find symbols
+  \itemR \href{http://pandoc.org/}{Pandoc}: convert to any format
+  \itemR \href{https://www.lyx.org/}{LyX}: middle point between Writer and LaTeX
 \end{fullpageitemize}
  
 \note{\href{http://mathb.in}{MathB.in} 
 
 \href{https://mathpix.com/}{Mathpix}: screenshot to equation} 
+\end{frame}
+
+\begin{frame}{Case study: article}
+ 
+ \begin{fullpageitemize}
+	\itemR Select journal and find template
+ \end{fullpageitemize} 
+ 
+ \note{}
+\end{frame}
+
+\begin{frame}{Case study: thesis}
+ 
+ \begin{fullpageitemize}
+	\itemR Organisation is a must!
+	\itemR Find a template
+	\itemR Proposed file system
+ \end{fullpageitemize} 
+ 
+ \note{Please use version control. Language support.}
+ 
 \end{frame}
 
 \begin{frame}{References}
@@ -358,24 +394,6 @@ glossaries
  
  \note{Stackoverflow! DuckDuckGo (cheatsheet)}
 \end{frame}
-
-\begin{frame}{Case study: article}
- 
- \begin{fullpageitemize}
-	\itemR
- \end{fullpageitemize} 
- 
- \note{}
-\end{frame}
-
-\begin{frame}{Case study: thesis}
- 
- \begin{fullpageitemize}
-	\itemR Organisation is a must!
- \end{fullpageitemize} 
- \note{}
-\end{frame}
-
 
 \framecard[colorgreen]{
 \vspace*{3ex}
