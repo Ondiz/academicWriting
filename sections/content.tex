@@ -338,12 +338,12 @@ Where \texttt{references.bib} looks like:
  \begin{fullpageitemize}
   \itemR \href{https://ctan.org/pkg/cleveref}{\texttt{cleveref}}: format of references are formatted automatically depending on type
   \itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/units/}{\texttt{units}}: typesets units properly
+  \itemR \href{https://www.ctan.org/pkg/listofsymbols}{\texttt{listofsymbols}}: builds automatic list of symbols
   \itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/microtype/}{\texttt{microtype}}: deals with microtypography
   \itemR \href{https://www.ctan.org/pkg/listings}{\texttt{listings}}: provides syntax highlighting for code
-  \itemR \href{https://www.ctan.org/pkg/listofsymbols}{\texttt{listofsymbols}}: builds automatic list of symbols
 \end{fullpageitemize}
 
-\note{I'm sharing here some packages I find useful, in the practice time take a look and ask me!}
+\note{I'm sharing here some packages I find useful, in the practice time take a look and ask me! The first three help dealing with references, units and symbols respectively and the last two are for improving the appearance of the document. (Example)}
 
 \end{frame}
 
@@ -357,29 +357,49 @@ Where \texttt{references.bib} looks like:
   \itemR \href{https://www.lyx.org/}{LyX}: middle point between Writer and LaTeX
 \end{fullpageitemize}
  
-\note{\href{http://mathb.in}{MathB.in} 
+\note{I'm sharing here some tools and tricks I use. We've talked about Overleaf before, I use it mainly for searching template. Then we have Inkscape that lets us export the text as LaTeX so that the font is the same as the one in the document. Also, as I mentioned, tables are a pain, there is this Excel plugin to export them from Excel. Then my two favourite tools: Detexify, that finds a symbol that we write and Pandoc, a command line tool to convert from any format to another so we can always write in LaTeX (EXAMPLE). Finally, we have LyX, that's an editor similar to Word but that uses LaTeX in the background, great to learn!
 
-\href{https://mathpix.com/}{Mathpix}: screenshot to equation} 
+Testing: \href{http://mathb.in}{MathB.in}; \href{https://mathpix.com/}{Mathpix}: screenshot to equation} 
 \end{frame}
 
 \begin{frame}{Case study: article}
  
  \begin{fullpageitemize}
-	\itemR Select journal and find template
+	\itemR Select journal 
+	\itemR Find LaTeX template or Guide for authors
+	\itemR Find example or docs of LaTeX class
+ \end{fullpageitemize} 
+ \vspace{2ex}
+ {\color{colororange}\largetext{Example}}
+ \vspace{2ex}
+  \begin{fullpageitemize}
+	\itemR \href{https://www.journals.elsevier.com/engineering-structures/}{Engineering structures} $\rightarrow$ \href{https://ctan.org/tex-archive/macros/latex/contrib/elsarticle}{\texttt{elsarticle.cls}}
+	\itemR \href{https://www.elsevier.com/journals/engineering-structures/0141-0296/guide-for-authors}{Guide for authors}
+	\itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/elsarticle/doc}{Example of use}
  \end{fullpageitemize} 
  
- \note{}
+ \note{We have then two case studies: a paper and a thesis. For a paper we have to choose first where to send it and find the LaTeX template (EXAMPLE)}
 \end{frame}
 
 \begin{frame}{Case study: thesis}
  
  \begin{fullpageitemize}
-	\itemR Organisation is a must!
-	\itemR Find a template
-	\itemR Proposed file system
+	\itemR Choose a template $\rightarrow$ \href{https://www.overleaf.com/}{Overleaf}
+	\itemR Proposed file system: 
+	\vspace{1ex}
+	\begin{fullpageitemize}
+	 \item[-] Main \texttt{.tex}
+	 \item[-] Bibliography in \texttt{.bib}
+	 \item[-] \texttt{Contents} folder $\rightarrow$ \texttt{.tex} files for chapters
+	 \item[-] \texttt{Figures} folder $\rightarrow$ subfolders for chapters
+	\end{fullpageitemize}
+	\itemR Consider \href{https://git-scm.com/book/en/v2}{version control}
+	\itemR If not writing in English $\rightarrow$ \href{https://en.wikibooks.org/wiki/LaTeX/Internationalization}{language support}
  \end{fullpageitemize} 
  
- \note{Please use version control. Language support.}
+ \note{The second case we're going to consider is a thesis. In this case organisation is a must! Having a logic file system and thinking in advance how are we going to treat symbols, units and the like is half the work. I propose something like this, with a main \texttt{.tex} and different ones for chapters inside a folder. And please use version control, I can't stress this more, please do it! 
+ 
+ As a note, if you're not writing in English, you must set the language, it's not trivial but takes care of the name of elements, the date and other stuff on its own.}
  
 \end{frame}
 
@@ -392,7 +412,9 @@ Where \texttt{references.bib} looks like:
 	\itemR \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf Docs}
  \end{fullpageitemize}
  
- \note{Stackoverflow! DuckDuckGo (cheatsheet)}
+ \note{To finish here you have a couple of reference. The first is a online book I wrote when I was on the dole and it's in Spanish. And remember, Stackoverflow is your friend! A neat trick is to search using DuckDuckGo that provides cheatsheets and direct answers from StackOverflow. 
+ 
+ Let's go!}
 \end{frame}
 
 \framecard[colorgreen]{
