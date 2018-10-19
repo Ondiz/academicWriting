@@ -5,6 +5,11 @@ uni.
 
 The beamer template used is [[https://github.com/RatulSaha/presento][Presento]] by Ratul Saha.
 
+** Instructions
+
+To produce the slides, download the contents of the repo and compile
+~academicWriting.tex~ with ~xelatex~
+
 ** TODO
 
 *** Accessibility
