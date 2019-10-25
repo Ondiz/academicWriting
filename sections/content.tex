@@ -1,9 +1,12 @@
-% !TeX root = ..\academicWriting.tex SHOULD WORK BUT DOESN'T :(
-
 % Notes for titlepage
-\note{Hi everybody welcome to this course! Here we'll put into practice the concepts learnt in the previous theory sessions using LaTeX to produce academic documents.
+\note{Hi everybody welcome to this course! Here we'll put into
+  practice the concepts learnt in the previous theory sessions using
+  LaTeX to produce academic documents.
 
-We're going to see how to create a document and its different parts, we're not going to focus on format (fontsize, colour, style\ldots) because when writing a paper it'll be defined by the template of the journal. We'll see how it works in the examples.}
+  We're going to see how to create a document and its different parts,
+  we're not going to focus on format (fontsize, colour, style\ldots)
+  because when writing a paper it'll be defined by the template of the
+  journal. We'll see how it works in the examples.}
 
 \begin{frame}{What's LaTeX?}
  \begin{fullpageitemize}
@@ -11,19 +14,33 @@ We're going to see how to create a document and its different parts, we're not g
   \itemR High quality documents
   \itemR Consistent output every time
   \itemR Separation of style from text
-  \itemR Easy academic format: equations, glossaries, bibliography, table of contents, cross references\ldots
+  \itemR Easy academic format: equations, glossaries, bibliography,
+  table of contents, cross references\ldots
  \end{fullpageitemize}
- \note{LaTeX is a markup language aiming to produce high quality documents. It was created by academics, with the idea of having consistent output every time (forget that table that moved itself from page 2 to 5), separation of style from text (that has two objetives: helps centre oneself in the content and allows the reuse of material) and easy academic format (equations are not a pain, glossaries, bibliographies and tables of contents automatic and cross referencing trivial)
+ \note{LaTeX is a markup language aiming to produce high quality
+   documents. It was created by academics, with the idea of having
+   consistent output every time (forget that table that moved itself
+   from page 2 to 5), separation of style from text (that has two
+   objetives: helps centre oneself in the content and allows the reuse
+   of material) and easy academic format (equations are not a pain,
+   glossaries, bibliographies and tables of contents automatic and
+   cross referencing trivial)
  
-So let's see how can we start using the stuff. As a note I'll talk mostly about free software because that's what I use}
+   So let's see how can we start using the stuff. As a note I'll talk
+   mostly about free software because that's what I use}
 \end{frame}
 
 \begin{frame}{What do I need?}
  \null{\color{colororange}\largetext{Option 1}}
  \begin{itemize}
-  \item \textbf{Editor}: general purpose or specific (\href{http://www.xm1math.net/texmaker/}{Texmaker}, \href{https://www.tug.org/texworks/}{TeXworks}, \href{https://kile.sourceforge.io/}{Kile})
+  \item \textbf{Editor}: general purpose or specific
+    (\href{http://www.xm1math.net/texmaker/}{Texmaker},
+    \href{https://www.tug.org/texworks/}{TeXworks},
+    \href{https://kile.sourceforge.io/}{Kile})
   
-  \item \textbf{Distribution}: \href{https://miktex.org/}{MikTeX} (Windows), \href{https://tug.org/texlive/}{TeXLive} (cross-platform) $\rightarrow$ compiler + packages
+  \item \textbf{Distribution}: \href{https://miktex.org/}{MikTeX}
+    (Windows), \href{https://tug.org/texlive/}{TeXLive}
+    (cross-platform) $\rightarrow$ compiler + packages
  \end{itemize}
  \vspace{1ex}
  {\color{colororange}\largetext{Option 2}}
@@ -31,23 +48,39 @@ So let's see how can we start using the stuff. As a note I'll talk mostly about 
   \item \textbf{Online editor}: \href{https://www.overleaf.com/}{Overleaf}
  \end{itemize}
  
- \note{We're going to write in plain text so any editor can do. I use Emacs (in general I write in Org mode and export to LaTeX). Also the AucTeX mode is specially useful. For starters, and with the idea of not getting crazy, one can use a specific editor as Texmaker that I used to produce these slides.
+ \note{We're going to write in plain text so any editor can do. I use
+   Emacs (in general I write in Org mode and export to LaTeX). Also
+   the AucTeX mode is specially useful. For starters, and with the
+   idea of not getting crazy, one can use a specific editor as
+   Texmaker that I used to produce these slides.
  
- We also need a distribution of LaTeX. If you're on Windows I'd recommend MikTeX as it takes care of needed packages on its own. If you're on Linux you know you to deal with packages!
+   We also need a distribution of LaTeX. If you're on Windows I'd
+   recommend MikTeX as it takes care of needed packages on its own. If
+   you're on Linux you know you to deal with packages!
  
- The other option is using an online service as Overleaf that takes care of the process. I use it mostly for trying templates, so if you plan to take this way, I can't help!}
+   The other option is using an online service as Overleaf that takes
+   care of the process. I use it mostly for trying templates, so if
+   you plan to take this way, I can't help!}
 \end{frame}
 
 \begin{frame}{The markup language}
  \begin{fullpageitemize}
-  \itemR We use labels to mark the parts of the text we want to have a specific style
+  \itemR We use labels to mark the parts of the text we want to have a
+  specific style
   \itemR After compilation, we obtain a styled document
   \itemR Documents must follow a concrete structure
-  \itemR Specific syntax for equations, figures, tables, titles, sections\ldots
- \end{fullpageitemize}
- \note{So, how we write in this LaTeX stuff? Easy! We just \emph{mark} the parts of the text we want to have a specific format with some  \emph{labels} that LaTeX understands, then it'll \emph{compile} our doc and produce a styled output.
+  \itemR Specific syntax for equations, figures, tables, titles,
+  sections\ldots
+\end{fullpageitemize}
+
+ \note{So, how we write in this LaTeX stuff? Easy! We just \emph{mark}
+   the parts of the text we want to have a specific format with some
+   \emph{labels} that LaTeX understands, then it'll \emph{compile} our
+   doc and produce a styled output.
  
- For this to be possible our documents must follow a concrete structure and we have to use a specific syntax for defining elements as equations, figures, tables or titles.}
+   For this to be possible our documents must follow a concrete
+   structure and we have to use a specific syntax for defining
+   elements as equations, figures, tables or titles.}
 \end{frame}
 
 \begin{frame}[fragile]{Structure of a document}
@@ -63,11 +96,18 @@ We write \texttt{.tex} files with this structure:
    \end{document}
  \end{lstlisting}
  
- \note{We write \texttt{.tex} files with a specific structure divided in two parts: the preamble, that goes from the definition of the document to the body and where we add packages, commands and data and after, the body of the document, where we write the contents.
+ \note{We write \texttt{.tex} files with a specific structure divided
+   in two parts: the preamble, that goes from the definition of the
+   document to the body and where we add packages, commands and data
+   and after, the body of the document, where we write the contents.
  
- The cited packages are pieces of LaTeX that people wrote and give us added functionality as language support. They're centralised in a repository called \href{https://www.ctan.org/}{CTAN} and we have to install them to use them.
+   The cited packages are pieces of LaTeX that people wrote and give
+   us added functionality as language support. They're centralised in
+   a repository called \href{https://www.ctan.org/}{CTAN} and we have
+   to install them to use them.
  
- In general, we'll have two types of documents: short and long, as we are academics, we can think of a paper and a thesis}
+   In general, we'll have two types of documents: short and long, as
+   we are academics, we can think of a paper and a thesis}
 
 \end{frame}
  
@@ -87,20 +127,29 @@ We write \texttt{.tex} files with this structure:
  \end{document}
  \end{lstlisting}
  
- \note{This is the typical structure of a short document, as a paper, that would probably use the article class or any of it's derivatives.}
+ \note{This is the typical structure of a short document, as a paper,
+   that would probably use the article class or any of it's
+   derivatives.}
 
 \end{frame}
 
 \begin{frame}{Short documents}
  \begin{fullpageitemize}
   \itemR We call packages in the preamble with \texttt{usepackage}
-  \itemR The \texttt{article} class has 4 divisions: \texttt{section}, \texttt{subsection}, \texttt{subsubsection} and \texttt{paragraph} (unnumbered)
+  \itemR The \texttt{article} class has 4 divisions: \texttt{section},
+  \texttt{subsection}, \texttt{subsubsection} and \texttt{paragraph}
+  (unnumbered)  
   \itemR The \texttt{*} suppresses numbering 
  \end{fullpageitemize} 
  
- \note{The things to take into account when writting a paper are that we have 4 divisions, from \texttt{section} to \texttt{paragraph}, the first 3 are numbered by default. To suppress numbering we use the starred version of them, exactly the same that we'll see for equations.
+ \note{The things to take into account when writting a paper are that
+   we have 4 divisions, from \texttt{section} to \texttt{paragraph},
+   the first 3 are numbered by default. To suppress numbering we use
+   the starred version of them, exactly the same that we'll see for
+   equations.
  
- There is also here an example of loading a package in the preamble so that you can see the syntax.}
+   There is also here an example of loading a package in the preamble
+   so that you can see the syntax.}
 
 \end{frame}
 
@@ -122,23 +171,37 @@ We write \texttt{.tex} files with this structure:
  \end{document} 
  \end{lstlisting}
  
- \note{This is a typical long document, for example a thesis. We'll have a main file and call the chapters and configuration from outside.}
+ \note{This is a typical long document, for example a thesis. We'll
+   have a main file and call the chapters and configuration from
+   outside.}
 
 \end{frame}
 
 \begin{frame}{Long documents}
  \begin{fullpageitemize}
-  \itemR The \texttt{book} class has also \texttt{part} and \texttt{chapter} divisions  
-  \itemR We can organise content in different files and \texttt{include}/\texttt{input} them
-  \itemR We can mark the document (\texttt{\textbackslash frontmatter}, \texttt{\textbackslash mainmatter}, \texttt{\textbackslash backmatter}) to establish different styles (page numbers, headings\ldots)
-  \itemR The chapters after \texttt{\textbackslash appendix} are identified using letters
+  \itemR The \texttt{book} class has also \texttt{part} and
+  \texttt{chapter} divisions 
+  \itemR We can organise content in different files and
+  \texttt{include}/\texttt{input} them
+  \itemR We can mark the document (\texttt{\textbackslash
+    frontmatter}, \texttt{\textbackslash mainmatter},
+  \texttt{\textbackslash backmatter}) to establish different styles
+  (page numbers, headings\ldots)
+  \itemR The chapters after \texttt{\textbackslash appendix} are
+  identified using letters
  \end{fullpageitemize}
  
- \note{When our document is long, instead of having a single gigantic tex file, we can divide the contents in several files and input or include them. The difference between including and inputing is that we cannot nest includes and that we can select what to compile when including (includeonly)
+ \note{When our document is long, instead of having a single gigantic
+   tex file, we can divide the contents in several files and input or
+   include them. The difference between including and inputing is that
+   we cannot nest includes and that we can select what to compile when
+   including (includeonly)
  
- We can mark the tex file with some identifiers so that the style varies, for example, by default, the page numbers between frontmatter and mainmatter are roman numerals. 
+   We can mark the tex file with some identifiers so that the style
+   varies, for example, by default, the page numbers between
+   frontmatter and mainmatter are roman numerals.
  
- Then, the chapters after appendix are identified using letters.}
+   Then, the chapters after appendix are identified using letters.}
 
 \end{frame}
 
@@ -154,9 +217,14 @@ We write \texttt{.tex} files with this structure:
 \end{document}
 \end{LTXexample}
 
-\note{Let's see then how to define elements. When I previously said that LaTeX uncouples format and content, I meant what you can see here: we gave it the data in the preamble and ask it to produce a titlepage somewhere in the document. It takes care of everything and will produce an appropriate title for our document class. 
+\note{Let's see then how to define elements. When I previously said
+  that LaTeX uncouples format and content, I meant what you can see
+  here: we gave it the data in the preamble and ask it to produce a
+  titlepage somewhere in the document. It takes care of everything and
+  will produce an appropriate title for our document class.
 
-We can, of course, change the appearance of the title --- we can actually change everything.}
+  We can, of course, change the appearance of the title --- we can
+  actually change everything.}
 
 \end{frame}
 
@@ -176,9 +244,15 @@ We can, of course, change the appearance of the title --- we can actually change
 \end{document}
 \end{LTXexample}
 
-\note{Here you can see the syntax for introducing equations and figures. The equation has a number that can be avoided using the equation* environment. Also, we can have both inline equations that are written between dollar signs. There is a special syntax for typesetting equations that's a bit complex to get, an online editor or a good IDE can help a lot at the beginning.
+\note{Here you can see the syntax for introducing equations and
+  figures. The equation has a number that can be avoided using the
+  equation* environment. Also, we can have both inline equations that
+  are written between dollar signs. There is a special syntax for
+  typesetting equations that's a bit complex to get, an online editor
+  or a good IDE can help a lot at the beginning.
 
-I'm using the packages amsmath and amssymb to improve the appearance of equations and to have more commands available.}
+  I'm using the packages amsmath and amssymb to improve the appearance
+  of equations and to have more commands available.}
 
 \end{frame}
 
@@ -193,7 +267,19 @@ I'm using the packages amsmath and amssymb to improve the appearance of equation
 \end{figure}
 \end{LTXexample}
 
-\note{Regarding figures, there are both inline and floating figures, the one shown is a floating one. We'll talk about floating elements after, but I'd like to point out a feature of all commands and environments: the options between brackets are optional and the ones between braces compulsory. So here, the path is of course compulsory. The extension can be omitted.}
+\begin{fullpageitemize}
+ \itemR Useful package:
+ \href{https://www.ctan.org/pkg/subcaption}{\texttt{subcaption}}
+\end{fullpageitemize}
+
+\note{Regarding figures, there are both inline and floating figures,
+  the one shown is a floating one. We'll talk about floating elements
+  after, but I'd like to point out a feature of all commands and
+  environments: the options between brackets are optional and the ones
+  between braces compulsory. So here, the path is of course
+  compulsory. The extension can be omitted.
+
+  The package \textbf{subcaption} allows us to include subfigures.}
 
 \end{frame}
 
@@ -211,7 +297,23 @@ I'm using the packages amsmath and amssymb to improve the appearance of equation
  \end{tabular}
 \end{table}
 \end{LTXexample}
-\note{Here you can see an example of a table. Tables in LaTeX are a pain to write, so at the end I'm linking some tricks to alleviate the work. They can be as well floating elements or not and consist on some data separated by \& and backslashes}
+
+\begin{fullpageitemize}
+  \itemR Useful packages:
+  \href{https://www.ctan.org/pkg/booktabs/}{\texttt{booktabs}},
+  \href{https://ctan.org/pkg/longtable}{\texttt{longtable}},
+  \href{https://www.ctan.org/pkg/tabularx}{\texttt{tabularx}}
+\end{fullpageitemize}
+
+\note{Here you can see an example of a table. Tables in LaTeX are a
+  pain to write, so at the end I'm linking some tricks to alleviate
+  the work. They can be as well floating elements or not and consist
+  on some data separated by \& and backslashes.
+
+  I added here some useful packages for tables such as
+  \textbf{booktabs} that allows to create professional looking tables,
+  \textbf{longtable} for tables that run across several pages and
+  \textbf{tabularx} to adjust the column width of tables.}
 \end{frame}
 
 \begin{frame}[fragile]{Crossreferences}
@@ -227,10 +329,20 @@ As seen in Equation~\ref{eq:im}
 
  \begin{fullpageitemize}
   \itemR Compile two times
-  \itemR Use identifiers for labels! 
+  \itemR Use identifiers for labels!
+  \itemR Useful package:
+  \href{https://ctan.org/pkg/cleveref}{\texttt{cleveref}}
  \end{fullpageitemize}
 
-\note{If we add a label to any element, we can after reference it in the text. We need to compile an additional time so as to get all the references. The editors let you choose (example in Texmaker). A good practice is to identify the references to find them with more ease.}
+ \note{If we add a label to any element, we can after reference it in
+   the text. We need to compile an additional time so as to get all
+   the references. The editors let you choose (example in Texmaker). A
+   good practice is to identify the references to find them with more
+   ease.
+
+   A useful package when dealing with crossreferences is
+   \textbf{cleveref} that provides automatic format of reference
+   depending on type.}
 
 \end{frame}
 
@@ -250,7 +362,8 @@ Floating elements (figures, tables, listings) can have captions:
 \end{table}
 \end{LTXexample}
 
-\note{Floating elements as figures, tables and code listings can have captions. Caption is positioned where we asked it to be.}
+\note{Floating elements as figures, tables and code listings can have
+  captions. Caption is positioned where we asked it to be.}
 
 \end{frame}
 
@@ -272,21 +385,33 @@ We can define short names for sections and captions for the lof/lot:
 \caption[SHORT]{LONG}
 \end{lstlisting}
 
-\note{Making a table of contents, list of figures or tables is trivial, we just add the command where we want it placed and done! We have to take into account two things: unnumbered chapters are not added to the table of contents, sections and captions have the option of a short name for the lists.}
+\note{Making a table of contents, list of figures or tables is
+  trivial, we just add the command where we want it placed and done!
+  We have to take into account two things: unnumbered chapters are not
+  added to the table of contents, sections and captions have the
+  option of a short name for the lists.}
 
 \end{frame}
 
 \begin{frame}{Bibliography}
  \begin{fullpageitemize}
   \itemR Bibliography stored in a \texttt{.bib} file 
-  \itemR Managed by external program (\href{http://www.bibtex.org/}{BibTeX}, \ldots) 
+  \itemR Managed by external program (\href{http://www.bibtex.org/}{BibTeX} \ldots) 
   \itemR Additional compilation step: \texttt{(pdf)latex - bibtex - (pdf)latex - (pdf)latex}
   \itemR Bibliography managers: JabRef, Zotero, \href{https://bibdesk.sourceforge.io/}{BibDesk}\ldots
  \end{fullpageitemize}
  
- \note{The most important part for academics like us is the ability to cite easily. In LaTeX citation is managed by an external program called BibTeX (there are more "advanced" options like Natbib, BibLaTeX) that comes with the distribution and requires and additional compilation step. So, if we have both crossreferences and bibliographic references, we'll have to compile 4 times in a sequence \texttt{(pdf)latex - bibtex - (pdf)latex - (pdf)latex}.
+ \note{The most important part for academics like us is the ability to
+   cite easily. In LaTeX citation is managed by an external program
+   called BibTeX (there are more "advanced" options like Natbib,
+   BibLaTeX) that comes with the distribution and requires and
+   additional compilation step. So, if we have both crossreferences
+   and bibliographic references, we'll have to compile 4 times in a
+   sequence \texttt{(pdf)latex - bibtex - (pdf)latex - (pdf)latex}.
  
- We need a \texttt{.bib} file that can be exported from our bibliography manager. For example, I use JabRef that works directly with \texttt{.bib} files.}
+   We need a \texttt{.bib} file that can be exported from our
+   bibliography manager. For example, I use JabRef that works directly
+   with \texttt{.bib} files.}
  
 \end{frame}
 
@@ -309,7 +434,14 @@ MWE with bibliography defined in \texttt{references.bib}:
   \itemR Collection of styles in \href{http://debibify.dorian-depriester.fr/}{Debibify}
  \end{fullpageitemize}
 
-\note{So, a minimum working example for a document with bibliographies would be something like this. The \texttt{\textbackslash cite} command introduces the cite into the text in the style defined. The \texttt{\textbackslash bibliography} writes down the references, alphabetically or in order of appearance depending on the style. We can have as many references as we want in the \texttt{.bib} file, LaTeX is smart and will only add the ones we have cited.}
+ \note{So, a minimum working example for a document with
+   bibliographies would be something like this. The
+   \texttt{\textbackslash cite} command introduces the cite into the
+   text in the style defined. The \texttt{\textbackslash bibliography}
+   writes down the references, alphabetically or in order of
+   appearance depending on the style. We can have as many references
+   as we want in the \texttt{.bib} file, LaTeX is smart and will only
+   add the ones we have cited.}
 
 \end{frame}
 
@@ -330,20 +462,25 @@ Where \texttt{references.bib} looks like:
   \itemR \texttt{Knuth1997} is the \textbf{key} that we use for citing
  \end{fullpageitemize}
 
-\note{The \texttt{.bib} file has entries that look like this one, where the first word is the key that we'll use for citing. A little trick is changing Scholar settings so that one can directly import to BibTeX (EXAMPLE)}
+ \note{The \texttt{.bib} file has entries that look like this one,
+   where the first word is the key that we'll use for citing. A little
+   trick is changing Scholar settings so that one can directly import
+   to BibTeX (EXAMPLE)}
 
 \end{frame}
 
 \begin{frame}{Useful packages}
  \begin{fullpageitemize}
-  \itemR \href{https://ctan.org/pkg/cleveref}{\texttt{cleveref}}: format of references are formatted automatically depending on type
   \itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/units/}{\texttt{units}}: typesets units properly
   \itemR \href{https://www.ctan.org/pkg/listofsymbols}{\texttt{listofsymbols}}: builds automatic list of symbols
   \itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/microtype/}{\texttt{microtype}}: deals with microtypography
   \itemR \href{https://www.ctan.org/pkg/listings}{\texttt{listings}}: provides syntax highlighting for code
 \end{fullpageitemize}
 
-\note{I'm sharing here some packages I find useful, in the practice time take a look and ask me! The first three help dealing with references, units and symbols respectively and the last two are for improving the appearance of the document. (Example)}
+\note{I'm sharing here some packages I find useful, in the practice
+  time take a look and ask me! The first three help dealing with
+  references, units and symbols respectively and the last two are for
+  improving the appearance of the document. (Example)}
 
 \end{frame}
 
@@ -357,9 +494,19 @@ Where \texttt{references.bib} looks like:
   \itemR \href{https://www.lyx.org/}{LyX}: middle point between Writer and LaTeX
 \end{fullpageitemize}
  
-\note{I'm sharing here some tools and tricks I use. We've talked about Overleaf before, I use it mainly for searching template. Then we have Inkscape that lets us export the text as LaTeX so that the font is the same as the one in the document. Also, as I mentioned, tables are a pain, there is this Excel plugin to export them from Excel. Then my two favourite tools: Detexify, that finds a symbol that we write and Pandoc, a command line tool to convert from any format to another so we can always write in LaTeX (EXAMPLE). Finally, we have LyX, that's an editor similar to Word but that uses LaTeX in the background, great to learn!
+\note{I'm sharing here some tools and tricks I use. We've talked about
+  Overleaf before, I use it mainly for searching template. Then we
+  have Inkscape that lets us export the text as LaTeX so that the font
+  is the same as the one in the document. Also, as I mentioned, tables
+  are a pain, there is this Excel plugin to export them from
+  Excel. Then my two favourite tools: Detexify, that finds a symbol
+  that we write and Pandoc, a command line tool to convert from any
+  format to another so we can always write in LaTeX
+  (EXAMPLE). Finally, we have LyX, that's an editor similar to Word
+  but that uses LaTeX in the background, great to learn!
 
-Testing: \href{http://mathb.in}{MathB.in}; \href{https://mathpix.com/}{Mathpix}: screenshot to equation} 
+  Testing: \href{http://mathb.in}{MathB.in};
+  \href{https://mathpix.com/}{Mathpix}: screenshot to equation}
 \end{frame}
 
 \begin{frame}{Case study: article}
@@ -372,49 +519,66 @@ Testing: \href{http://mathb.in}{MathB.in}; \href{https://mathpix.com/}{Mathpix}:
  \vspace{2ex}
  {\color{colororange}\largetext{Example}}
  \vspace{2ex}
-  \begin{fullpageitemize}
-	\itemR \href{https://www.journals.elsevier.com/engineering-structures/}{Engineering structures} $\rightarrow$ \href{https://ctan.org/tex-archive/macros/latex/contrib/elsarticle}{\texttt{elsarticle.cls}}
-	\itemR \href{https://www.elsevier.com/journals/engineering-structures/0141-0296/guide-for-authors}{Guide for authors}
-	\itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/elsarticle/doc}{Example of use}
+ \begin{fullpageitemize}
+   \itemR
+   \href{https://www.journals.elsevier.com/engineering-structures/}{Engineering
+     structures} $\rightarrow$
+   \href{https://ctan.org/tex-archive/macros/latex/contrib/elsarticle}{\texttt{elsarticle.cls}}
+   \itemR
+   \href{https://www.elsevier.com/journals/engineering-structures/0141-0296/guide-for-authors}{Guide
+     for authors}
+   \itemR \href{https://ctan.org/tex-archive/macros/latex/contrib/elsarticle/doc}{Example of use}
  \end{fullpageitemize} 
  
- \note{We have then two case studies: a paper and a thesis. For a paper we have to choose first where to send it and find the LaTeX template (EXAMPLE)}
+ \note{We have then two case studies: a paper and a thesis. For a
+   paper we have to choose first where to send it and find the LaTeX
+   template (EXAMPLE)}
 \end{frame}
 
 \begin{frame}{Case study: thesis}
  
  \begin{fullpageitemize}
-	\itemR Choose a template $\rightarrow$ \href{https://www.overleaf.com/}{Overleaf}
-	\itemR Proposed file system: 
-	\vspace{1ex}
-	\begin{fullpageitemize}
-	 \item[-] Main \texttt{.tex}
-	 \item[-] Bibliography in \texttt{.bib}
-	 \item[-] \texttt{Contents} folder $\rightarrow$ \texttt{.tex} files for chapters
-	 \item[-] \texttt{Figures} folder $\rightarrow$ subfolders for chapters
-	\end{fullpageitemize}
-	\itemR Consider \href{https://git-scm.com/book/en/v2}{version control}
-	\itemR If not writing in English $\rightarrow$ \href{https://en.wikibooks.org/wiki/LaTeX/Internationalization}{language support}
+    \itemR Choose a template $\rightarrow$ \href{https://www.overleaf.com/}{Overleaf}
+    \itemR Proposed file system: 
+    \vspace{1ex}
+    \begin{fullpageitemize}
+     \item[-] Main \texttt{.tex}
+     \item[-] Bibliography in \texttt{.bib}
+     \item[-] \texttt{Contents} folder $\rightarrow$ \texttt{.tex} files for chapters
+     \item[-] \texttt{Figures} folder $\rightarrow$ subfolders for chapters
+    \end{fullpageitemize}
+    \itemR Consider \href{https://git-scm.com/book/en/v2}{version control}
+    \itemR If not writing in English $\rightarrow$ \href{https://en.wikibooks.org/wiki/LaTeX/Internationalization}{language support}
  \end{fullpageitemize} 
  
- \note{The second case we're going to consider is a thesis. In this case organisation is a must! Having a logic file system and thinking in advance how are we going to treat symbols, units and the like is half the work. I propose something like this, with a main \texttt{.tex} and different ones for chapters inside a folder. And please use version control, I can't stress this more, please do it! 
+ \note{The second case we're going to consider is a thesis. In this
+   case organisation is a must! Having a logic file system and
+   thinking in advance how are we going to treat symbols, units and
+   the like is half the work. I propose something like this, with a
+   main \texttt{.tex} and different ones for chapters inside a
+   folder. And please use version control, I can't stress this more,
+   please do it!
  
- As a note, if you're not writing in English, you must set the language, it's not trivial but takes care of the name of elements, the date and other stuff on its own.}
+   As a note, if you're not writing in English, you must set the
+   language, it's not trivial but takes care of the name of elements,
+   the date and other stuff on its own.}
  
 \end{frame}
 
 \begin{frame}{References}
  \begin{fullpageitemize}
-	\itemR\href{https://ondiz.github.io/cursoLatex/}{Curso no convencional de LaTeX}. Ondiz Zarraga
-
-	\itemR \href{http://www.khirevich.com/latex/}{Tips on Writing a Thesis in LaTeX}. Siarhei Khirevich
-	
-	\itemR \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf Docs}
+    \itemR\href{https://ondiz.github.io/cursoLatex/}{Curso no convencional de LaTeX}. Ondiz Zarraga
+    \itemR \href{http://www.khirevich.com/latex/}{Tips on Writing a Thesis in LaTeX}. Siarhei Khirevich
+    \itemR \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf Docs}
  \end{fullpageitemize}
  
- \note{To finish here you have a couple of reference. The first is a online book I wrote when I was on the dole and it's in Spanish. And remember, Stackoverflow is your friend! A neat trick is to search using DuckDuckGo that provides cheatsheets and direct answers from StackOverflow. 
+ \note{To finish here you have a couple of references. The first is a
+   online book I wrote when I was on the dole and it's in Spanish. And
+   remember, Stackoverflow is your friend! A neat trick is to search
+   using DuckDuckGo that provides cheatsheets and direct answers from
+   StackOverflow.
  
- Let's go!}
+   Let's go!}
 \end{frame}
 
 \framecard[colorgreen]{
@@ -426,3 +590,7 @@ Testing: \href{http://mathb.in}{MathB.in}; \href{https://mathpix.com/}{Mathpix}:
 \end{figure}
 {\tiny\href{https://xkcd.com/1301/}{\textcolor{white}{https://xkcd.com/1301/}}}
 }
+%%% Local Variables:
+%%% TeX-master: "../academicWriting"
+%%% TeX-engine: xetex
+%%% End:
